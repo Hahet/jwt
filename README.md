@@ -1,14 +1,14 @@
-JWT(json web tokens) 跨域身份验证解决方案
+### JWT(json web tokens) 跨域身份验证解决方案
 
-JWT是一种token存储的格式
-分为三部分组成
-结构如下
-Header.Payload.Signature
-Header和Payload都是json格式数据的base64url编码的数据(由于JWT数据可能会在url中)。
+> JWT是一种token存储的格式
+> 分为三部分组成
+> 结构如下
+>  Header.Payload.Signature
+> Header和Payload都是json格式数据的base64url编码的数据(由于JWT数据可能会在url中)。
 
-JWT一般做三件事情
+### JWT一般做三件事情
 
-1. encode 编码
+#### 1. encode 编码
 这部分用于用户发送请求到服务器，服务器把要存储在客户端的数据编码，并进行签名后发送到客户端存储。
 
     Key = b'my-secret' # 存储在服务器
@@ -32,13 +32,13 @@ JWT一般做三件事情
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.j7vwW1sfcOmnR4tTCVMZfJCFVjwnQh0ajARTY2Q9nMw
 
 
-2. validate
+#### 2. validate
 
 这部分用于验证数据是否被修改，例如客户端发送数据到服务器，服务
 器首先对数据进行验证是否被修改，如果被修改则抛弃。
 signature(Header.Payload) == Signature
 
-3. decode
+#### 3. decode
     Key = b'my-secret' # 存储在服务器
     header = base64url_encode(Header)
     payload = base64url_encode(Payload)
@@ -47,5 +47,5 @@ signature(Header.Payload) == Signature
 
 
 
-参考页面
+### 参考页面
 https://jwt.io/
